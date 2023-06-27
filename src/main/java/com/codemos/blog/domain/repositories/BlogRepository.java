@@ -2,12 +2,14 @@ package com.codemos.blog.domain.repositories;
 
 import com.codemos.blog.domain.entities.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface BlogRepository extends JpaRepository<Blog, Integer> {
+import java.util.List;
+
+@Repository
+public interface BlogRepository extends JpaRepository<Blog, Long> {
 	
-	Blog findByTitle(String title);
+	List<Blog> findByAuthor(String author);
 	
-	Blog findByTitleAndContent(String title, String content);
-	
-	Blog findByTitleLike(String title);
+	List<Blog> findByTitleContaining(String title);
 }

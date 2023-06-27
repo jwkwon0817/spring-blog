@@ -1,24 +1,25 @@
 package com.codemos.blog.domain.dto.request;
 
 import com.codemos.blog.domain.entities.Blog;
-import lombok.Data;
+import lombok.*;
 
-import java.time.LocalDateTime;
-
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
+@NoArgsConstructor
 public class BlogRequestDto {
 	
+	private String author;
 	private String title;
-	
 	private String content;
 	
-	private LocalDateTime createdDate;
 	
 	public Blog toEntity() {
 		return Blog.builder()
+			.author(author)
 			.title(title)
 			.content(content)
-			.createdDate(createdDate)
 			.build();
 	}
 }

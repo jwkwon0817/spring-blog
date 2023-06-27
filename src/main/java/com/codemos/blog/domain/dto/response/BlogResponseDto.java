@@ -1,17 +1,21 @@
 package com.codemos.blog.domain.dto.response;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@Data
-@RequiredArgsConstructor
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class BlogResponseDto {
 	
-	private final Integer id;
-	private final String title;
+	private Long id;
+	private String author;
+	private String title;
+	private String content;
+	private LocalDateTime createdDate;
 	
-	private final String content;
-	private final LocalDateTime createdDate;
 }

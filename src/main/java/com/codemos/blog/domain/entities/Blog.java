@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -16,7 +15,9 @@ public class Blog {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
+	
+	private String author;
 	
 	@Column(length = 200)
 	private String title;
@@ -25,8 +26,5 @@ public class Blog {
 	private String content;
 	
 	private LocalDateTime createdDate;
-	
-	@OneToMany(mappedBy = "blog", cascade = CascadeType.REMOVE)
-	private List<Comment> comments;
 }
 
